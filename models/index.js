@@ -10,18 +10,30 @@ User.hasMany(Post, {
 });
 
 Post.belongsTo(User, {
+<<<<<<< HEAD
   foreignKey: 'user_id'
+=======
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
+>>>>>>> feature/dashboard
 });
 
 User.belongsToMany(Post, {
   through: Vote,
   as: 'voted_posts',
+<<<<<<< HEAD
   foreignKey: 'user_id'
+=======
+
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
+>>>>>>> feature/dashboard
 });
 
 Post.belongsToMany(User, {
   through: Vote,
   as: 'voted_posts',
+<<<<<<< HEAD
   foreignKey: 'post_id'
 });
 
@@ -31,6 +43,20 @@ Vote.belongsTo(User, {
 
 Vote.belongsTo(Post, {
   foreignKey: 'post_id'
+=======
+  foreignKey: 'post_id',
+  onDelete: 'SET NULL'
+});
+
+Vote.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
+});
+
+Vote.belongsTo(Post, {
+  foreignKey: 'post_id',
+  onDelete: 'SET NULL'
+>>>>>>> feature/dashboard
 });
 
 User.hasMany(Vote, {
@@ -42,6 +68,7 @@ Post.hasMany(Vote, {
 });
 
 Comment.belongsTo(User, {
+<<<<<<< HEAD
   foreignKey: 'user_id'
 });
 
@@ -51,6 +78,20 @@ Comment.belongsTo(Post, {
 
 User.hasMany(Comment, {
   foreignKey: 'user_id'
+=======
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
+});
+
+Comment.belongsTo(Post, {
+  foreignKey: 'post_id',
+  onDelete: 'SET NULL'
+});
+
+User.hasMany(Comment, {
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
+>>>>>>> feature/dashboard
 });
 
 Post.hasMany(Comment, {
